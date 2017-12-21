@@ -6,7 +6,7 @@
 #    By: msicot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 14:13:34 by msicot            #+#    #+#              #
-#    Updated: 2017/12/21 18:23:53 by msicot           ###   ########.fr        #
+#    Updated: 2017/12/21 19:29:04 by msicot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,6 @@ $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@echo "Indexing the library.."
 	@ranlib $(NAME)
-	$(complete)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
@@ -108,6 +107,5 @@ clean :
 fclean : clean
 	@rm -f $(NAME)
 	@echo "Library have been removed"
-	$(complete)
 
 re : fclean all

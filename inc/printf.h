@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 16:45:53 by msicot            #+#    #+#             */
-/*   Updated: 2017/12/21 17:36:42 by msicot           ###   ########.fr       */
+/*   Updated: 2017/12/21 18:39:53 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,11 @@
 
 #include "libft.h"
 #include <stdarg.h>
+#include <stdlib.h>
+
+typedef struct s_arg
+{
+	int len;
+}				t_arg;
 
 #endif
