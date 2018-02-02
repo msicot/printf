@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 15:09:05 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/01 17:38:16 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/02 14:55:30 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void		ft_flag_reset(t_arg *arg)
 	arg->point = 0;
 	arg->us = 0;
 	arg->o = 0;
+	arg->x = 0;
 }
 
 void		ft_flag_override(t_arg *l)

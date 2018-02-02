@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 16:00:28 by msicot            #+#    #+#             */
-/*   Updated: 2018/01/31 18:27:14 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/02 14:14:57 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,22 @@ void ft_wp_zero(char **s, char *val, t_arg *l, int k)
 	int j;
 	int	len;
 
+	len = ft_strlen(val);
+	j = 0;
+	i = 0;
+	if (l->blank == 1)
+		(*s)[i++] = ' ';
+	else if (l->sign == 1)
+		(*s)[i++] = (l->neg == 1) ? val[j++] : '+';
+	while (i < k && j < len)
+		(*s)[i++] = val[j++];
+}
+
+void ft_wp_zero_o(char **s, char *val, t_arg *l, int k)
+{
+	int i;
+	int j;
+	int	len;
 	len = ft_strlen(val);
 	j = 0;
 	i = 0;

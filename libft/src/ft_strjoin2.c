@@ -1,29 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 19:14:09 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/02 16:31:18 by msicot           ###   ########.fr       */
+/*   Created: 2017/11/14 09:21:47 by msicot            #+#    #+#             */
+/*   Updated: 2018/01/16 18:02:05 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strlowcase(char *str)
+static char		*ft_joint(char const *s1, char const *s2, char *t)
 {
-	int i;
+	int	i;
+	int	j;
 
-	if (str == NULL)
+	i = 0;
+	j = 0;
+	while (s1[j])
+	{
+		t[j] = s1[j];
+		j++;
+	}
+	i = 0;
+	while (s2[i])
+	{
+		t[j] = s2[i];
+		i++;
+		j++;
+	}
+	t[j] = 0;
+	return (t);
+}
+
+char			*ft_strjoin(char const *s1, char const *s2)
+{
+	int		i;
+	int		j;
+	char	*t;
+
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] <= 'Z' && str[i] >= 'A')
-			str[i] = str[i] + 32;
+	j = 0;
+	while (s1[i])
 		i++;
+	while (s2[j])
+	{
+		i++;
+		j++;
 	}
-	return (str);
+	if (!(t = malloc(i + 1)))
+		return (NULL);
+	return (ft_joint(s1, s2, t));
 }

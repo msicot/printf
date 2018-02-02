@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_width_o.c                                       :+:      :+:    :+:   */
+/*   ft_width_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 18:27:50 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/02 16:19:17 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/02 16:20:11 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void ft_minus_d(char **s, char *val, t_arg *l, int k)
 		(*s)[i++] = ' ';
 }
 
-void		ft_width_o(char **s, char *val, t_arg *l, int k)
+void		ft_width_x(char **s, char *val, t_arg *l, int k)
 {
 	int i;
 	int	len;

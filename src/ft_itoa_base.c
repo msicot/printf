@@ -1,56 +1,68 @@
-#include "libftprintf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base (1).c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/02/02 09:56:36 by msicot            #+#    #+#             */
+/*   Updated: 2018/02/02 10:03:14 by msicot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int	ft_nbchar(int nb, int base)
+#include <libftprintf.h>
+
+static int	ft_num_len (uintmax_t n, int base)
 {
-	int				nbchar;
-	unsigned long	num;
+	int i;
 
-	nbchar = 1;
-	if (nb < 0)
+	i = 0;
+	while (n != 0)
 	{
-		if (base == 10)
-		{
-			num = nb * -1;
-			nbchar++;
-		}
+		n /= base;
+		++i;
+	}
+	return (i);
+}
+static char	*ft_create_str(int base, int len, uintmax_t n, int sign)
+{
+	char	*str;
+	char	letter;
+
+	if ((str = (char*)malloc(sizeof(char) * (len + 1))) == NULL)
+		return (NULL);
+	str[len] = '\0';
+	while (--len >= 0)
+	{
+		if (n % base >= 10)
+			letter = 'A' - 10;
 		else
-			num = UINT_MAX + nb + 1;
+			letter = '0';
+		str[len] = n % base + letter;
+		n /= base;
 	}
-	else
-		num = nb;
-	while (num / base != 0)
-	{
-		num = num / base;
-		nbchar++;
-	}
-	return (nbchar);
+	if (base == 10 && sign != 0)
+		str[0] = '-';
+	return (str);
 }
 
-char		*ft_itoa_base(intmax_t num, unsigned int base)
+char		*ft_itoa_base(uintmax_t n, int base, int sign)
 {
-	intmax_t		nb;
-	char			*str;
-	int				i;
+	char		*str;
+	int			len;
 
-	i = ft_nbchar(num, base);
-	str = ft_strnew(i);
-	if (num < 0)
+	len = ft_num_len(n, base);
+	if (n == 0)
 	{
-		if (base == 10)
-		{
-			str[0] = '-';
-			nb = num * -1;
-		}
-		else
-			nb = UINT_MAX + num + 1;
+		if ((str = (char*)malloc(sizeof(char) * (2))) == NULL)
+			return (NULL);
+		str[0] = '0';
+		str[1] = '\0';
+		return (str);
 	}
-	else
-		nb = num;
-	while (nb / base != 0)
-	{
-		str[--i] = nb % base + (nb % base > 9 ? 'a' - 10 : '0');
-		nb = nb / base;
-	}
-	str[--i] = nb % base + (nb % base > 9 ? 'a' - 10 : '0');
+	if (base == 10 && sign != 0)
+		len++;
+	if ((str = ft_create_str(base, len, n, sign)) == NULL)
+		return (NULL);
 	return (str);
 }
