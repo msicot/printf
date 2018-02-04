@@ -55,8 +55,8 @@ char	*ft_itoa_max(intmax_t n);
 void	ft_flag_override(t_arg *l);
 void	ft_is_flag(const char *format, t_arg *l);
 void	ft_error_flag_format();
-void	ft_is_preci(const char *f, t_arg *l, va_list ap);
-void	ft_is_width(const char *f, t_arg *l, va_list ap);
+void	ft_is_preci(const char *f, t_arg *l, va_list ap); //Delete ?
+void	ft_is_width(const char *f, t_arg *l, va_list ap); //Delete ? 
 void	ft_format_delim(const char *f, t_arg *l, va_list ap);
 void	ft_lecture(char *buf, t_arg *l, const char *f, va_list ap);
 void	ft_merge(char *buf, t_arg *l);
@@ -79,6 +79,7 @@ void	ft_gnf(t_arg *l, const char *f, va_list ap);
 char	*ft_width_int(char *s, t_arg *l);
 char	*ft_preci_int(char *s, t_arg *l);
 void	ft_preci_d(char **s, char *val, t_arg *l, int k);
+void	ft_preci_x(char **s, char *val, t_arg *l, int k);
 void	ft_width_d(char **s, char *val, t_arg *l, int k);
 void	ft_width_o(char **s, char *val, t_arg *l, int k);
 void	ft_width_x(char **s, char *val, t_arg *l, int k);

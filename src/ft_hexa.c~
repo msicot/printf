@@ -25,7 +25,7 @@ static char	*ft_is_hexa2(va_list ap, t_arg *l)
 	if (l->hh == 1)
 		return (ft_integer_x(((unsigned char)(va_arg(ap, unsigned int))), l));
 	if (l->h == 1)
-		return (ft_integer_x(((short unsigned int)(va_arg(ap, unsigned int))), l));
+		return (ft_integer_x(((short unsigned char)(va_arg(ap, unsigned int))), l));
 	return (ft_integer_x((va_arg(ap, unsigned int)), l));
 }
 

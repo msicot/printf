@@ -14,7 +14,7 @@
 
 static int	ft_sharping(char **s, t_arg *l, int i)
 {
-	if (l->sharp == 2)
+	if (l->sharp == 2 && l->zero == 1)
 	{
 		(*s)[i++] = '0';
 		(*s)[i++] = 'X';
