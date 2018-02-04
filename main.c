@@ -1,12 +1,17 @@
 #include "inc/libftprintf.h"
 #include <stdio.h>
 
-#define _TEST_ "t0 -->%#5.3x<--", 42
-#define _TEST1_ "t1 -->%#.x<--", 7
-#define _TEST2_ "t2 -->%###05x<-->%#5.x<- et !", 42, 42
-#define _TEST3_ "t3 -->%#05x<--", 42
+
+
+
+
+#define _TEST_ "t0 -->%#10llX<--", (unsigned long long)-1248759650
+#define _TEST1_ "t1 -->%7.5X<- et !", 0xab
+//#define _TEST1_ "t1 -->%#.0x<--", 0
+#define _TEST2_ "t2 -->%#7.5X<- et !", 0xab
+#define _TEST3_ "t3 -->%0##0.4X<->%#4.2x<-et cest fini<-", 0x037a, 0x9e
 #define _TEST4_ "t4 -->coco et  ->%-#-#--4X<- titi->%#012x<-", 12, -874
-#define _TEST5_ "t5 -->%# 6.3x<--", 42
+#define _TEST5_ "t5 -->%0#10.5x<--", 12345
 int main()
 {
 	unsigned char t = 42;
