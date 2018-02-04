@@ -46,7 +46,7 @@ static void	ft_fill_it(char **s, char *val,  t_arg *l, int k)
 			l->preci = len + (x) + l->sharp;
 		}
 	}
-	if (l->preci >= l->width && l->preci != 0)
+	if (l->preci + l->sharp >= l->width && l->preci != 0)
 		ft_preci_x(s, val, l, k);
 	else //if (l->preci < l->width)
 		ft_width_x(s, val, l, k);

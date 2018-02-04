@@ -66,7 +66,7 @@ static void	ft_else_width(char **s, char *val, t_arg *l, int k)
 	while (i < (k))
 		(*s)[i++] = val[j++];
 //	printf("s = %s\n", *s);///
-	ft_sharping(s, l, (int)ft_strlen(val));
+	ft_sharping(s, l);
 }
 
 static void ft_minus_d(char **s, char *val, t_arg *l, int k)
