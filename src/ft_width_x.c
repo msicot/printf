@@ -12,9 +12,10 @@
 
 #include "libftprintf.h"
 
-static int	ft_sharping(char **s, t_arg *l, int i)
+static void	ft_sharping(char **s, t_arg *l)
 {
-	if (l->sharp == 2)
+	/*
+	if (l->sharp == 2 && (l->width < l->preci) && l->point == 1)
 	{
 		(*s)[i++] = '0';
 		(*s)[i++] = 'X';
@@ -22,6 +23,18 @@ static int	ft_sharping(char **s, t_arg *l, int i)
 		return (i);
 	}
 	return (i);
+*/
+	int i;
+
+	i = 0;
+	if (l->sharp == 2)
+	{
+		while ((*s)[i] == ' ')
+			++i;
+			(*s)[i++] = '0';
+			(*s)[i++] = 'X';
+		l->sharp = 0;
+	}
 }
 
 
@@ -36,22 +49,24 @@ static void	ft_else_width(char **s, char *val, t_arg *l, int k)
 	lim = (l->preci > lenf) ? l->preci : lenf;
 	j = 0;
 	i = 0;
-	i = ft_sharping(s, l, i);
+//	i = ft_sharping(s, l, i)
 	while (i < (k - (lim)))
 		(*s)[i++] = (l->zero == 1) ? '0' : ' ';
 	if (l->preci != 0)
 	{
-		if (l->sharp == 2)
+		/*if (l->sharp == 2)
 		{
 			(*s)[i++] = '0';
 			(*s)[i++] = 'X';
 			l->sharp = 0;
-		}
+		}*/
 		while (i < (k - lenf))
 			(*s)[i++] = '0';
 	}
 	while (i < (k))
 		(*s)[i++] = val[j++];
+//	printf("s = %s\n", *s);///
+	ft_sharping(s, l, (int)ft_strlen(val));
 }
 
 static void ft_minus_d(char **s, char *val, t_arg *l, int k)
