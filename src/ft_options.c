@@ -48,7 +48,6 @@ void		ft_is_preci(const char *f, t_arg *l, va_list ap)
 	if (f[LEN] == '.')
 	{
 		l->point = 0;
-		l->zero = 0;
 		l->point = 1;
 		++LEN;
 		if (f[LEN] && f[LEN] == 42)

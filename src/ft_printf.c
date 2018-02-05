@@ -22,6 +22,7 @@ int	ft_printf(const char *format, ...)
 	if (!(l.str = ft_strnew(0)))
 		return (0);
 	l.len = 0;
+	l.add = 0;
 	va_start(ap, format);
 	ft_gnf(&l, format, ap);
 //	printf("l->str end --> %s<--\n", l.str);
@@ -30,5 +31,5 @@ int	ft_printf(const char *format, ...)
 	ft_putstr(l.str);
 	i =  (ft_strlen(l.str));
 	ft_strdel(&l.str);
-	return (i);	
+	return (i + l.add);
 }

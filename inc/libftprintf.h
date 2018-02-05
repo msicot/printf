@@ -47,6 +47,7 @@ typedef struct s_arg
 	int		us;
 	int		o;
 	int		x;
+	int		add;
 }				t_arg;
 
 int		ft_printf(const char *format, ...);
@@ -70,6 +71,7 @@ char	*ft_is_d(va_list ap, t_arg *l);
 char	*ft_is_u(va_list ap, t_arg *l);
 char	*ft_is_x(va_list ap, t_arg *l);
 char	*ft_is_octal(va_list ap, t_arg *l);
+char	*ft_is_c(va_list ap, t_arg *l);
 
 char	*ft_string(t_arg *l, va_list ap);
 char	*ft_pourc(t_arg *l);

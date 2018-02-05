@@ -5,13 +5,13 @@
 
 
 
-#define _TEST_ "t0 -->%#10llX<--", (unsigned long long)-1248759650
-#define _TEST1_ "t1 -->%7.5X<- et !", 0xab
-//#define _TEST1_ "t1 -->%#.0x<--", 0
-#define _TEST2_ "t2 -->%#7.5X<- et !", 0xab
-#define _TEST3_ "t3 -->%0##0.4X<->%#4.2x<-et cest fini<-", 0x037a, 0x9e
-#define _TEST4_ "t4 -->coco et  ->%-#-#--4X<- titi->%#012x<-", 12, -874
-#define _TEST5_ "t5 -->%0#10.5x<--", 12345
+//#define _TEST_ "t0 ->cat ->%----4s<- %1s va %10c%-c ??", "lol"
+#define _TEST_ "t0 ->cat -%-6.5s<- %1s", "12345", "plump" //va %10c%-c ??", "lol"
+#define _TEST1_ "t1 -->ca%10.0s %02s<- et !", NULL, b
+#define _TEST2_ "t2 -->_%1c_<- et !", '\n'
+#define _TEST3_ "t3 -->%6.8c ?<-", "12345"
+#define _TEST4_ "t4 -->%-5.3s ??<--", "yoooo"
+#define _TEST5_ "ca%----4c %1c va %10c%-c ??", '\0', '\n', (char)564, 0
 int main()
 {
 	unsigned char t = 42;
@@ -27,8 +27,8 @@ int main()
 
 	printf(" %d\n", printf(_TEST_));
 	printf(" %d\n\n",ft_printf(_TEST_));
-// while(1)
-//		i = 1;
+ //while(1)
+	//	i = 1;
 	printf(" %d\n", printf(_TEST1_));
 	printf(" %d\n\n",ft_printf(_TEST1_));
 	
