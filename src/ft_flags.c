@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 15:09:05 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/02 14:55:30 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/06 15:32:23 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void		ft_flag_reset(t_arg *arg)
 	arg->us = 0;
 	arg->o = 0;
 	arg->x = 0;
+	arg->bkzero = 0;
 }
 
 void		ft_flag_override(t_arg *l)
@@ -57,7 +58,11 @@ static int	ft_raise_flag(const char *format, t_arg *l)
 		l->plus = 1;
 	}
 	else if (format[LEN] == '0')
+	{
 		l->zero = 1;
+		l->bkzero = 1;
+		
+	}
 	else if (format[LEN] == ' ')
 		l->blank = 1;
 	else if (format[LEN] == '#')

@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 13:23:13 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/02 16:27:59 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/06 15:48:37 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,15 @@ void		ft_format_delim(const char *f, t_arg *l, va_list ap)
 
 	s = NULL;
 	l->zero = (l->point == 1 && f[LEN] != 'c') ? 0 : l->zero;
-//	printf("width->%d<-\n", l->width);///
-	if (f[LEN] == '%')
+/*	printf("width->%d<-\n", l->width);///
+	if (f[LEN] == '\0' && l->loop == 0)
+	{
+		printf("test\n");
+	//	--l->add;
+	}*/
+	 if (f[LEN] == '\0' && l->loop != 0)
+		l->add++;
+	else if (f[LEN] == '%')
 		s = ft_pourc(l);
 	else if (f[LEN] == 'd' || f[LEN] == 'i' || f[LEN] == 'D')
 	{
@@ -56,14 +63,22 @@ void		ft_format_delim(const char *f, t_arg *l, va_list ap)
 		if (!(s = ft_is_c(ap,l)))
 			return ;
 	}
+	else if (f[LEN] == 'p')
+	{
+		s = ft_is_p(ap, l);
+	}
+	else if (f[LEN] == 'C')
+	{
+		s = ft_is_unic(ap, l);
+	}
 	else
 	{
-		++LEN;
+	//	++LEN;
 		return ;
 	}
 	if (s != NULL)
 		ft_mna(s, l);
-	ft_strdel(&s);
+//	ft_strdel(&s); //ENELVER LES //
 	++LEN;
 //	ft_putstr("test end of format\n"); //DEL
 }

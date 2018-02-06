@@ -6,12 +6,20 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 09:38:47 by msicot            #+#    #+#             */
-/*   Updated: 2018/01/29 10:55:24 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/06 11:55:42 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+/*
+char		*ft_pourc(t_arg *l)
+{
+	char	*s;
 
+	s = ft_strnew(1);
+	s[0] = '%';
+	return (ft_string();
+}
 
 static char	*ft_preci(char *s, t_arg *l)
 {
@@ -79,4 +87,4 @@ char		*ft_pourc(t_arg *l)
 		if (!(s = ft_width(s, l)))
 			return (NULL);
 	return (s);
-}
+*/

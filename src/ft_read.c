@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:11:31 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/01 17:00:29 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/06 15:31:57 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void		ft_gnf(t_arg *l, const char *f, va_list ap)
 			buf[i] = f[LEN];
 			++i;
 			++LEN;
+			l->loop = 1;
 		}
 		ft_merge(buf, l);
 		if (f[LEN] == '%')

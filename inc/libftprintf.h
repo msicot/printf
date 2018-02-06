@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 13:57:59 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/02 16:20:23 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/06 15:28:10 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct s_arg
 	int		o;
 	int		x;
 	int		add;
+	int		bkzero;
+	int		loop;
 }				t_arg;
 
 int		ft_printf(const char *format, ...);
@@ -72,8 +74,11 @@ char	*ft_is_u(va_list ap, t_arg *l);
 char	*ft_is_x(va_list ap, t_arg *l);
 char	*ft_is_octal(va_list ap, t_arg *l);
 char	*ft_is_c(va_list ap, t_arg *l);
-
+char	*ft_is_p(va_list ap, t_arg *l);
+char	*ft_is_unic(va_list ap, t_arg *l);
 char	*ft_string(t_arg *l, va_list ap);
+char	*ft_string_p(char *s, t_arg *l);
+
 char	*ft_pourc(t_arg *l);
 char	*ft_itoa_base(uintmax_t num, int base, int sign);
 char	*ft_itoa_unsigned(uintmax_t n);

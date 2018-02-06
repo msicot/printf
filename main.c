@@ -6,11 +6,11 @@
 
 
 //#define _TEST_ "t0 ->cat ->%----4s<- %1s va %10c%-c ??", "lol"
-#define _TEST_ "t0 ->cat -%-6.5s<- %1s", "12345", "plump" //va %10c%-c ??", "lol"
-#define _TEST1_ "t1 -->ca%10.0s %02s<- et !", NULL, b
-#define _TEST2_ "t2 -->_%1c_<- et !", '\n'
-#define _TEST3_ "t3 -->%6.8c ?<-", "12345"
-#define _TEST4_ "t4 -->%-5.3s ??<--", "yoooo"
+#define _TEST_ "hello %O ->%wlol", LONG_MAX//"t0 ->cat ->% %C<- ->% +%\n", NULL // "12345", "plump" //va %10c%-c ??", "lol"
+#define _TEST1_ "t1 ->ca->%2C<- -> %02p<- et !", 0xc0, b
+#define _TEST2_ "t2 ->%#x<-- et !", 0
+#define _TEST3_ "t3 ->%6.8c ?<-", "12345"
+#define _TEST4_ "t4 ->%-5.3s ??<--", "yoooo"
 #define _TEST5_ "ca%----4c %1c va %10c%-c ??", '\0', '\n', (char)564, 0
 int main()
 {
@@ -25,6 +25,11 @@ int main()
 	intmax_t k = 42;
 	
 
+/*	printf(_TEST_);
+	printf("\n");
+	ft_printf(_TEST_);
+	printf("\n");
+	ft_printf("\n");*/
 	printf(" %d\n", printf(_TEST_));
 	printf(" %d\n\n",ft_printf(_TEST_));
  //while(1)

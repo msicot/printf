@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_is_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/18 07:13:57 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/06 15:32:09 by msicot           ###   ########.fr       */
+/*   Created: 2018/02/06 10:50:49 by msicot            #+#    #+#             */
+/*   Updated: 2018/02/06 11:45:36 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int	ft_printf(const char *format, ...)
+char	*ft_is_p(va_list ap, t_arg *l)
 {
-	va_list	ap;
-	t_arg	l;
-	int		i;
+	char	*s;
+//	char 	*tmp;
+	uintptr_t x;
 
-	if (!(l.str = ft_strnew(0)))
-		return (0);
-	l.len = 0;
-	l.add = 0;
-	l.loop = 0;
-	va_start(ap, format);
-	ft_gnf(&l, format, ap);
-//	printf("l->str end --> %s<--\n", l.str);
-//	ft_lecture(buf, &l, format, ap);
-	va_end(ap);
-	ft_putstr(l.str);
-	i =  (ft_strlen(l.str));
-	ft_strdel(&l.str);
-	return (i + l.add);
+	s = NULL;
+	l->sharp = 2;
+	l->point = 0;
+	l->preci = 0;
+	x = va_arg(ap, uintptr_t);
+//	printf("p -->%lu<--\n", x);
+	s = ft_integer_x(x, l);
+	if (x == 0)
+	{
+		ft_strdel(&s);
+//		printf("test\n");
+		s = ft_strnew(3);
+		s[0] = '0';
+		s[1] = 'x';
+		s[2] = '0';
+		return (ft_string_p(s, l));
+	}
+	s = ft_strlowcase(s);
+	return (s);
 }
