@@ -3,11 +3,9 @@
 
 
 
-
-
-//#define _TEST_ "t0 ->cat ->%----4s<- %1s va %10c%-c ??", "lol"
-#define _TEST_ "hello %O ->%wlol", LONG_MAX//"t0 ->cat ->% %C<- ->% +%\n", NULL // "12345", "plump" //va %10c%-c ??", "lol"
-#define _TEST1_ "t1 ->ca->%2C<- -> %02p<- et !", 0xc0, b
+#define _TEST_ "t0 ->cat ->%----4s<- %1s", "lol", "hello"
+//#define _TEST_ "hello %O ->%wlol", LONG_MAX//"t0 ->cat ->% %C<- ->% +%\n", NULL // "12345", "plump" //va %10c%-c ??", "lol"
+#define _TEST1_ "t1 ->%C<-!", 0x378
 #define _TEST2_ "t2 ->%#x<-- et !", 0
 #define _TEST3_ "t3 ->%6.8c ?<-", "12345"
 #define _TEST4_ "t4 ->%-5.3s ??<--", "yoooo"
@@ -23,13 +21,13 @@ int main()
 //	printf("\n \tTest itoa\n i->%s<-\n\n", ft_itoa_max(i));
 	int j = 992;
 	intmax_t k = 42;
-	
 
-/*	printf(_TEST_);
-	printf("\n");
-	ft_printf(_TEST_);
-	printf("\n");
-	ft_printf("\n");*/
+	char* l = setlocale(LC_ALL, "");
+	if (l == NULL) 
+		printf("Locale not set\n");
+	else 
+		printf("Locale set to %s\n", l);
+
 	printf(" %d\n", printf(_TEST_));
 	printf(" %d\n\n",ft_printf(_TEST_));
  //while(1)
