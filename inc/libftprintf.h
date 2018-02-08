@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 13:57:59 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/06 15:28:10 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/08 19:22:20 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include "../libft/inc/libft.h"
 #include <stdio.h> //////DELETTTTEEEEEE
 #include <limits.h>
+#include <locale.h>
+#include <wchar.h>
 # define BUFF_SIZE 32
 # define LEN l->len
 
@@ -53,6 +55,7 @@ typedef struct s_arg
 }				t_arg;
 
 int		ft_printf(const char *format, ...);
+int		ft_error_uni(t_arg *l, wchar_t u);
 void	ft_flag_reset(t_arg *arg);
 char	*ft_itoa_max(intmax_t n);
 void	ft_flag_override(t_arg *l);
@@ -76,6 +79,7 @@ char	*ft_is_octal(va_list ap, t_arg *l);
 char	*ft_is_c(va_list ap, t_arg *l);
 char	*ft_is_p(va_list ap, t_arg *l);
 char	*ft_is_unic(va_list ap, t_arg *l);
+char	*ft_is_unis(va_list ap, t_arg *l);
 char	*ft_string(t_arg *l, va_list ap);
 char	*ft_string_p(char *s, t_arg *l);
 
@@ -94,6 +98,7 @@ void	ft_signin(char **s, t_arg *l, int k, int lim);
 void	ft_wp_zero(char **s, char *val, t_arg *l, int k);
 void	ft_wp_zero_o(char **s, char *val, t_arg *l, int k);
 int		ft_champs(char *s, t_arg *l);
+char	*ft_char_c(char c, t_arg *l);
 
 //char	*ft_sign2(char *s, char *sign);
 

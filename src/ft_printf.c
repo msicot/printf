@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 07:13:57 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/06 15:32:09 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/08 16:23:04 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ int	ft_printf(const char *format, ...)
 	l.len = 0;
 	l.add = 0;
 	l.loop = 0;
+	l.exit = 0;
 	va_start(ap, format);
 	ft_gnf(&l, format, ap);
 //	printf("l->str end --> %s<--\n", l.str);
 //	ft_lecture(buf, &l, format, ap);
 	va_end(ap);
-	ft_putstr(l.str);
-	i =  (ft_strlen(l.str));
+	if (l.exit != 3)
+		ft_putstr(l.str);
+	i = (l.exit > 1) ? -1 : (ft_strlen(l.str));
 	ft_strdel(&l.str);
 	return (i + l.add);
 }

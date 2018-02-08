@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:11:31 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/06 15:31:57 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/08 16:10:29 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		ft_gnf(t_arg *l, const char *f, va_list ap)
 			++LEN;
 			ft_retrieve(f, l, ap);
 		}
-		if (f[LEN] == '\0')
+		if (f[LEN] == '\0' || l->exit != 0)
 			break ;
 	}
 	ft_strdel(&buf);

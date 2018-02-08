@@ -1,12 +1,11 @@
 #include "inc/libftprintf.h"
 #include <stdio.h>
+#include <wchar.h>
 
 
-
-#define _TEST_ "t0 ->cat ->%----4s<- %1s", "lol", "hello"
-//#define _TEST_ "hello %O ->%wlol", LONG_MAX//"t0 ->cat ->% %C<- ->% +%\n", NULL // "12345", "plump" //va %10c%-c ??", "lol"
-#define _TEST1_ "t1 ->%C<-!", 0x378
-#define _TEST2_ "t2 ->%#x<-- et !", 0
+#define _TEST_ "%lc", 254 
+#define _TEST1_ "t1 ->%C<-!", (wint_t)-2
+#define _TEST2_ "t2 ->%4C<-- et !", 'u'
 #define _TEST3_ "t3 ->%6.8c ?<-", "12345"
 #define _TEST4_ "t4 ->%-5.3s ??<--", "yoooo"
 #define _TEST5_ "ca%----4c %1c va %10c%-c ??", '\0', '\n', (char)564, 0

@@ -1,13 +1,17 @@
-
-
-
-
-
-
-
-/////// HEADER MOTHER FUCKER/////
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_is_c.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/02/08 13:57:50 by msicot            #+#    #+#             */
+/*   Updated: 2018/02/08 17:58:57 by msicot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libftprintf.h"
+
 static void	ft_fill(char **s, t_arg *l, int k, char c)
 {
 	int i;
@@ -44,7 +48,7 @@ static int	ft_champs_c(char c, t_arg *l)
 	return (len);
 
 }
-static char	*ft_char(char c, t_arg *l)
+char	*ft_char_c(char c, t_arg *l)
 {
 	char	*s;
 	int	k;
@@ -58,5 +62,7 @@ static char	*ft_char(char c, t_arg *l)
 
 char	*ft_is_c(va_list ap, t_arg *l)
 {
-	return (ft_char((char)va_arg(ap, int), l));
+	if (l->l == 1)
+		return (ft_is_unic(ap, l));
+	return (ft_char_c((char)va_arg(ap, int), l));
 }

@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 15:09:05 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/06 15:32:23 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/08 15:35:56 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void		ft_flag_reset(t_arg *arg)
 	arg->preci = 0; // suppr -1
 	arg->wild = 0;
 	arg->width = 0;
-	arg->exit = 0;
 	arg->neg = 0;
 	arg->sign = 0;
 	arg->hh = 0;

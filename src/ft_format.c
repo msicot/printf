@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 13:23:13 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/06 15:48:37 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/08 18:36:21 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,7 @@ void		ft_format_delim(const char *f, t_arg *l, va_list ap)
 
 	s = NULL;
 	l->zero = (l->point == 1 && f[LEN] != 'c') ? 0 : l->zero;
-/*	printf("width->%d<-\n", l->width);///
-	if (f[LEN] == '\0' && l->loop == 0)
-	{
-		printf("test\n");
-	//	--l->add;
-	}*/
-	 if (f[LEN] == '\0' && l->loop != 0)
+	if (f[LEN] == '\0' && l->loop != 0)
 		l->add++;
 	else if (f[LEN] == '%')
 		s = ft_pourc(l);
@@ -36,7 +30,6 @@ void		ft_format_delim(const char *f, t_arg *l, va_list ap)
 	}
 	else if (f[LEN] == 's')
 	{
-	//	ft_putstr("f[LEN] = s\n"); ///;
 		if (!(s = ft_string(l, ap)))
 			return ;
 	}
@@ -70,6 +63,10 @@ void		ft_format_delim(const char *f, t_arg *l, va_list ap)
 	else if (f[LEN] == 'C')
 	{
 		s = ft_is_unic(ap, l);
+	}
+	else if (f[LEN] == 'S')
+	{
+		s = ft_is_unis(ap, l);
 	}
 	else
 	{
