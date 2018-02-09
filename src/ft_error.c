@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 13:08:13 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/08 20:17:18 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/09 17:15:30 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 
 int	ft_error_uni(t_arg *l, wchar_t u)
 {
-/*	char *s;
-
-	s = setlocale(LC_ALL, "");
-	if (s == NULL)
-	{
-		l->exit = 1;
-		return (1);
-	}*/
 	if (u < 0)
 	{
 		l->exit = 3;
@@ -33,7 +25,7 @@ int	ft_error_uni(t_arg *l, wchar_t u)
 		l->add = (l->add == 0) ? 1 : l->add;
 		return (1);
 	}
-	else if (u > 127 && MB_CUR_MAX == 1)
+	else if (u > 255 && MB_CUR_MAX == 1)
 	{
 		l->exit = 2;
 		return (1);
@@ -55,6 +47,7 @@ int	ft_error_uni(t_arg *l, wchar_t u)
 	}
 	else if (u >= 0xAC00 && u <= 0xD7AF)
 	{
+		ft_putstr("test\n");
 		l->exit = 2;
 		return (1);
 	}
