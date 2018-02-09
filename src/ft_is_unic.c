@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/06 14:09:26 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/09 17:14:24 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/09 17:32:54 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ char	*ft_is_unic(va_list ap, t_arg *l)
 	l->point = 0;
 	l->preci = 0;
 	u = va_arg(ap, wchar_t);
+	// rajouter pour gerer le "% C"
 	if (ft_error_uni(l , u) == 1)
 		return (s);
 	if (u < 128 || (u <= 255 && MB_CUR_MAX == 1))

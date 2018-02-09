@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 12:41:05 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/09 17:11:14 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/09 17:28:49 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ void	ft_null_c(char *s, t_arg *l)
 	ft_strdel(&s);
 	if (!(l->str = ft_strnew(0)))
 		return ;
-//	l->exit = 2;
 	LEN++;
 }
-
+/*
 void	ft_null_unic(char *s, t_arg *l)
 {
 
@@ -37,4 +36,4 @@ void	ft_null_unic(char *s, t_arg *l)
 	if (!(l->str = ft_strnew(0)))
 		return ;
 	LEN++;
-}
+}*/

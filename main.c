@@ -5,7 +5,7 @@
 #define _TEST_ "->ca%----4cva %10c%-c ??<-", '\0'  
 #define _TEST1_ "ca%-4c %1c va %10c%-c ?? lol", '\0', '\n', (char)564, 0
 #define _TEST2_ "t2 -> %12lc <-- et !", 127
-#define _TEST3_ "t3 ->%-c ?<-", 0
+#define _TEST3_ "t3 ->% C?<-", 0
 #define _TEST4_ "t4 ->\0%-5.3s ??<--", "yoooo"
 #define _TEST5_ "t1 ->%8C et coco %10C titi %lc", 3250, 0x11ffff, 'a'
 int main()
@@ -25,9 +25,13 @@ char* l = setlocale(LC_ALL, "");
 		printf("Locale not set\n");
 	else 
 		printf("Locale set to %s\n", l);
+
+	printf("X->% C<-\n", 0);
+	ft_printf("mine->% C<-\n",0);
+	ft_putchar('\n');
+	ft_putchar('\n');
 	/*	
-	printf("X->%c<-\n", 0);
-	ft_printf("mine->%c<-\n",0);
+
 printf("Y->%c<-\n", 0);
 printf("Z->%c<-\n", NULL);
 printf("A->%s<-\n", "\0");
