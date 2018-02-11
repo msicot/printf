@@ -58,7 +58,7 @@ typedef struct s_arg
 int		ft_printf(const char *format, ...);
 int		ft_error_uni(t_arg *l, wchar_t u);
 void	ft_null_c(char *s, t_arg *l);
-//void	ft_null_unic(char *s, t_arg *l);
+void	ft_null_unic(t_arg *l);
 void	ft_flag_reset(t_arg *arg);
 char	*ft_itoa_max(intmax_t n);
 void	ft_flag_override(t_arg *l);
@@ -82,6 +82,7 @@ char	*ft_is_octal(va_list ap, t_arg *l);
 char	*ft_is_c(va_list ap, t_arg *l);
 char	*ft_is_p(va_list ap, t_arg *l);
 char	*ft_is_unic(va_list ap, t_arg *l);
+char	*ft_unicode2(wchar_t u, t_arg *l);
 char	*ft_is_unis(va_list ap, t_arg *l);
 char	*ft_string(t_arg *l, va_list ap);
 char	*ft_string_p(char *s, t_arg *l);

@@ -30,6 +30,11 @@ void		ft_format_delim(const char *f, t_arg *l, va_list ap)
 	}
 	else if (f[LEN] == 's')
 	{
+		if (l->l == 1)
+		{
+			if (!(s = ft_is_unis(ap, l)))
+				return ;
+		}
 		if (!(s = ft_string(l, ap)))
 			return ;
 	}

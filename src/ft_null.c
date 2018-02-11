@@ -24,16 +24,13 @@ void	ft_null_c(char *s, t_arg *l)
 		return ;
 	LEN++;
 }
-/*
-void	ft_null_unic(char *s, t_arg *l)
-{
 
-	l->flen += ((int)ft_strlen(l->str) + (int)ft_strlen(s)) + 1;;
-	ft_putstr(l->str);
-	write(1, s, ft_strlen(s) + 1);
+void	ft_null_unic(t_arg *l)
+{
+	l->flen += ((int)ft_strlen(l->str)) + 1;;
+	write(1, l->str, ft_strlen(l->str) + 1);
 	ft_strdel(&l->str);
-	ft_strdel(&s);
 	if (!(l->str = ft_strnew(0)))
 		return ;
-	LEN++;
-}*/
+//	LEN++;
+}

@@ -60,7 +60,7 @@ static char	*ft_conv(int *tab, t_arg *l)
 
 	return (s);
 }
-static char	*ft_unicode2(wchar_t u, t_arg *l)
+char	*ft_unicode2(wchar_t u, t_arg *l)
 {
 	int i[5];
 
@@ -107,9 +107,10 @@ char	*ft_is_unic(va_list ap, t_arg *l)
 	l->point = 0;
 	l->preci = 0;
 	u = va_arg(ap, wchar_t);
-	// rajouter pour gerer le "% C"
 	if (ft_error_uni(l , u) == 1)
 		return (s);
+	if (u == 0)
+		ft_null_unic(l);
 	if (u < 128 || (u <= 255 && MB_CUR_MAX == 1))
 		s = ft_char_c((char)u, l);
 	else if (u >= 128)

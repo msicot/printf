@@ -19,12 +19,6 @@ int	ft_error_uni(t_arg *l, wchar_t u)
 		l->exit = 3;
 		return (1);
 	}
-	else if (u == 0)
-	{
-		l->exit = 1;
-		l->add = (l->add == 0) ? 1 : l->add;
-		return (1);
-	}
 	else if (u > 255 && MB_CUR_MAX == 1)
 	{
 		l->exit = 2;
