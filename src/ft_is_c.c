@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 13:57:50 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/09 16:03:24 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/12 11:38:14 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ static void	ft_fill(char **s, t_arg *l, int k, char c)
 	int i;
 
 	i = 0;
-//	l->add = (c == '\0'/* && l->minus == 0*/) ? ++l->add : l->add;
 	if (l->minus == 0 || c == 0)
 	{
 		while (i < k - 1)
 			(*s)[i++] = (l->zero == 1) ? '0' : ' ';
 		if (i < k)
 		{
-	//		if (c == 0 && l->minus == 1 && l->width == 0)
 	
 			(*s)[i] = (c == '\0') ? '\0' : c;
 		}
@@ -43,7 +41,6 @@ static int	ft_champs_c(t_arg *l)
 	int len;
 
 	len = 1;
-//	len = (c != '\0') ? len: len;
 	len = (l->width > len) ? len + (l->width - len) : len;
 	return (len);
 

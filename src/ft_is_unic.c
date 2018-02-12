@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/06 14:09:26 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/09 17:32:54 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/12 15:09:04 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static void 	ft_width_uni(char **s, char *tmp, t_arg *l, int c)
 		while (i < (c))
 			(*s)[i++] = ' ';
 	}
-//	printf("s -<%s<-", *s);
 }
 
 static char	*ft_conv(int *tab, t_arg *l)
@@ -43,22 +42,25 @@ static char	*ft_conv(int *tab, t_arg *l)
 	int		c;
 	int		k;
 	int 	i;
-	char	tmp[5];
+	char	*tmp;
 	
 
 	k = 0;
 	i = 0;
+	if (!(tmp = ft_strnew(5)))
+		return (NULL);
 	while (tab[i] != 0)
 		tmp[k++] = (char)tab[i++];
 	tmp[k] = '\0';
-	c = ft_champs(tmp, l);
-	s = ft_strnew(c);
-	ft_width_uni(&s, tmp, l, c);
-	
-//s[k++] =  'x';
-//	printf("s->%s<-\n",s);
-
-	return (s);
+	if (l->x == 0)
+	{
+		c = ft_champs(tmp, l);
+		s = ft_strnew(c);
+		ft_width_uni(&s, tmp, l, c);
+		ft_strdel(&tmp);
+		return (s);
+	}
+	return (tmp);
 }
 char	*ft_unicode2(wchar_t u, t_arg *l)
 {
@@ -99,7 +101,6 @@ char	*ft_is_unic(va_list ap, t_arg *l)
 	wchar_t	u;
 	char	*s;
 
-	
 	s = NULL;
 	l->sign = 0;
 	l->neg = 0;

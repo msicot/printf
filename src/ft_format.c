@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 13:23:13 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/08 18:36:21 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/12 13:25:40 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,11 @@ void		ft_format_delim(const char *f, t_arg *l, va_list ap)
 			if (!(s = ft_is_unis(ap, l)))
 				return ;
 		}
-		if (!(s = ft_string(l, ap)))
-			return ;
+		else
+		{
+			if (!(s = ft_string(l, ap)))
+				return ;
+		}
 	}
 
 	else if (f[LEN] == 'o' || f[LEN] == 'O')
@@ -75,12 +78,14 @@ void		ft_format_delim(const char *f, t_arg *l, va_list ap)
 	}
 	else
 	{
-	//	++LEN;
+		++LEN;
 		return ;
 	}
 	if (s != NULL)
 		ft_mna(s, l);
-//	ft_strdel(&s); //ENELVER LES //
+	ft_strdel(&s);
 	++LEN;
-//	ft_putstr("test end of format\n"); //DEL
+//	ft_putstr("l->str=");
+//		ft_putstr(l->str);
+//	ft_putstr("__end\n");
 }
