@@ -6,25 +6,23 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 18:14:38 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/12 15:20:44 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/12 18:48:38 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int ft_printable(char x)
+static int ft_printable(char s)
 {
-	int s;
-
-	s = (int)x;
-	printf("s ->%d<-\n", s);
+	if ((int)s < 255 || MB_CUR_MAX == 1)
+		return (1);
 	s = s >> 3;
 	if (s == 30)
 		return (4);
-	s = s >> 1;
+	s = (s >> 1) & 14;
 	if (s == 14)
 		return (3);
-	s = s >> 1;
+	s = (s >> 1) & 6;
 	if (s == 6)
 		return (2);
 	return (1);
@@ -37,24 +35,43 @@ static void	ft_width_s(char **s, t_arg *l)
 	char	*tmp;
 	
 	tmp = *s;
-	len = 0;
 	i = 0;
-	if (l->point != 0 && (*s) != NULL)
+	if (l->point == 1 && (*s) != NULL)
 	{
-//		ft_printable(s, l);
-		while (i < l->preci)
+		if (l->preci == 0)
+			ft_bzero(*s, ft_strlen(*s));
+		else
 		{
-			len = ft_printable(tmp[i]);
-			ft_putnbr(len);
-			ft_putchar('\n');
-			if (i + len < l->preci)
-				i += len;
-			else
-				break ;
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			while (i < l->preci)
+			{
+				len = ft_printable(tmp[i]);
+			//	printf("len-->%d<--\n", len);////
+				if (len == 1 && i < l->preci)
+					++i;
+				else if (len > 1 && MB_CUR_MAX == 1)
+					break ;
+				else if (i + len < l->preci)
+					i += len;
+				else if (i + len >= l->preci)
+					break ;
+			}
+	//		printf("i->%d<-\n", i);
+			len = (int)ft_strlen(*s);
+			printf("len=%d i=%d\n", len, i);
+			while (i < len)
+				(*s)[i++] = '\0';
 		}
-	
-//		printf("len->%d\tl->preci->%d\n", (int)ft_strlen(*s), l->preci);
-		(*s) = ft_strncpy(*s, *s, i);
 	}
 }
 
@@ -68,11 +85,12 @@ static char	*ft_is_unic_s(wchar_t u, t_arg *l)
 	l->sign = 0;
 	l->neg = 0;
 	l->zero = 0;
-	if (ft_error_uni(l , u) == 1)
+	if (ft_error_uni_s(l , u) == 1)
 		return (s);
 	if (u < 128 || (u <= 255 && MB_CUR_MAX == 1))
 	{
 		s2[0] = (char)u;
+//		printf("s2 ->%s<- LEN=%d\n", s2, (int)ft_strlen(s2));///
 		return (s2);
 	}
 	else if (u >= 128)
@@ -102,10 +120,10 @@ char	*ft_is_unis(va_list ap, t_arg *l)
 		ft_strdel(&tmp2);
 		ft_strdel(&tmp);
 	}
-	l->x = 0;
+//	printf("s__>%s<__\n", s);///
 	ft_width_s(&s, l);
-//	ft_putstr("test");
-	
-//	printf("_%s_\n", s);
+//	ft_putstr("test");///	
+	l->x = 0;
+//	printf("_%s_\n", s);///
 	return (s);
 }

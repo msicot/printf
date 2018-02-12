@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 13:57:59 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/09 17:33:17 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/12 17:32:43 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_arg
 
 int		ft_printf(const char *format, ...);
 int		ft_error_uni(t_arg *l, wchar_t u);
+int		ft_error_uni_s(t_arg *l, wchar_t u);
 void	ft_null_c(char *s, t_arg *l);
 void	ft_null_unic(t_arg *l);
 void	ft_flag_reset(t_arg *arg);
