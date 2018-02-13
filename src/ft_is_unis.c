@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 18:14:38 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/12 18:48:38 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 09:25:46 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int ft_printable(char s)
 {
-	if ((int)s < 255 || MB_CUR_MAX == 1)
+	if ((int)s < 255 && MB_CUR_MAX == 1)
 		return (1);
 	s = s >> 3;
 	if (s == 30)
@@ -28,7 +28,7 @@ static int ft_printable(char s)
 	return (1);
 }
 
-static void	ft_width_s(char **s, t_arg *l)
+static void	ft_preci_s(char **s, t_arg *l)
 {
 	int		i;
 	int		len;
@@ -42,37 +42,50 @@ static void	ft_width_s(char **s, t_arg *l)
 			ft_bzero(*s, ft_strlen(*s));
 		else
 		{
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			while (i < l->preci)
 			{
 				len = ft_printable(tmp[i]);
-			//	printf("len-->%d<--\n", len);////
+	//			printf("len-->%d<--\n", len);////
 				if (len == 1 && i < l->preci)
 					++i;
 				else if (len > 1 && MB_CUR_MAX == 1)
 					break ;
-				else if (i + len < l->preci)
+				else if (i + len <= l->preci)
 					i += len;
-				else if (i + len >= l->preci)
+				else if (i + len > l->preci)
 					break ;
 			}
-	//		printf("i->%d<-\n", i);
+	//		printf("i->%d<-\n", i);//
 			len = (int)ft_strlen(*s);
-			printf("len=%d i=%d\n", len, i);
+	//		printf("len=%d i=%d\n", len, i);/////
 			while (i < len)
 				(*s)[i++] = '\0';
 		}
 	}
+}
+
+static char	*ft_width_s(char *s, t_arg *l)
+{
+	char	*tmp;
+	int		len;
+	char	*pad;
+	int		i;
+
+	i = 0;
+	len = (int)ft_strlen(s);
+	tmp = s;
+	if (l->width > len)
+	{
+		if (!(pad = ft_strnew(l->width - len)))
+			return (NULL);
+		while (i < (l->width - len))
+			pad[i++] = ' ';
+		if (!(s = (l->minus == 0) ? ft_strjoin(pad, s) : ft_strjoin(s,pad)))
+			return (NULL);
+	ft_strdel(&pad);
+	ft_strdel(&tmp);
+	}
+	return (s);
 }
 
 static char	*ft_is_unic_s(wchar_t u, t_arg *l)
@@ -98,7 +111,6 @@ static char	*ft_is_unic_s(wchar_t u, t_arg *l)
 	return (s);
 }
 
-
 char	*ft_is_unis(va_list ap, t_arg *l)
 {
 	char	*s;
@@ -121,7 +133,12 @@ char	*ft_is_unis(va_list ap, t_arg *l)
 		ft_strdel(&tmp);
 	}
 //	printf("s__>%s<__\n", s);///
-	ft_width_s(&s, l);
+	ft_preci_s(&s, l);
+	if (s != NULL)
+	{
+	if (!(s = ft_width_s(s, l)))
+		return (NULL);
+	}
 //	ft_putstr("test");///	
 	l->x = 0;
 //	printf("_%s_\n", s);///
