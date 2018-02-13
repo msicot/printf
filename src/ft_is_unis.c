@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 18:14:38 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 12:29:24 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 19:04:44 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static char	*ft_width_s(char *s, t_arg *l)
 		if (!(pad = ft_strnew(l->width - len)))
 			return (NULL);
 		while (i < (l->width - len))
-			pad[i++] = ' ';
+			pad[i++] = (l->zero == 1) ? '0' : ' ';
 		if (!(s = (l->minus == 0) ? ft_strjoin(pad, s) : ft_strjoin(s,pad)))
 			return (NULL);
 	ft_strdel(&pad);
@@ -93,7 +93,7 @@ static char	*ft_is_unic_s(wchar_t u, t_arg *l)
 		return (NULL);
 	l->sign = 0;
 	l->neg = 0;
-	l->zero = 0;
+//	l->zero = 0;
 	if (ft_error_uni_s(l , u) == 1)
 		return (s);
 	if (u < 128 || (u <= 255 && MB_CUR_MAX == 1))

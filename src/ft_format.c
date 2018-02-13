@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 13:23:13 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 18:32:27 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 18:54:47 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,7 @@ void		ft_format_delim(const char *f, t_arg *l, va_list ap)
 	}
 	else
 	{
-	//	++LEN;
-		return ;
+		s = ft_char_c(f[LEN],l);
 	}
 	if (s != NULL)
 		ft_mna(s, l);
