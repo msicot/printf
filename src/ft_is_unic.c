@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/06 14:09:26 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/12 15:09:04 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 18:11:59 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,13 @@ char	*ft_is_unic(va_list ap, t_arg *l)
 	if (ft_error_uni(l , u) == 1)
 		return (s);
 	if (u == 0)
+	{
 		ft_null_unic(l);
+	}
 	if (u < 128 || (u <= 255 && MB_CUR_MAX == 1))
 		s = ft_char_c((char)u, l);
 	else if (u >= 128)
 		s = ft_unicode2(u, l);
+
 	return (s);
 }

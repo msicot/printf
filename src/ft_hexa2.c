@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 14:58:32 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/02 16:21:41 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 16:56:34 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,12 @@ static void	ft_fill_it(char **s, char *val,  t_arg *l, int k)
 {
 	int		j;
 	int		i;
-	int		len;
-	int	x;
 
 	j = 0;
 	i = 0;
-	if (l->sharp == 2 && val[0] != '0')
-	{
-		len = (int)ft_strlen(val);
-		if (l->preci <=  len + l->sharp)
-		{
-			x = (l->preci - len > 0) ? l->preci - len : 0;
-		//	printf("preci = %d\n",l->preci);
-			l->preci = len + (x) + l->sharp;
-		}
-	}
-	if (l->preci + l->sharp >= l->width && l->preci != 0)
+	if (l->preci + l->sharp > l->width && l->preci != 0)
 		ft_preci_x(s, val, l, k);
-	else //if (l->preci < l->width)
+	else 
 		ft_width_x(s, val, l, k);
 }
 

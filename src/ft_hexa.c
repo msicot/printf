@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 14:33:09 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/06 11:14:18 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 16:53:32 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ char	*ft_is_x(va_list ap, t_arg *l)
 		return (NULL);
 	if (l->x == 0)
 	{
-	//	tmp = s;
 		if (!(s = ft_strlowcase(s)))
 			return (NULL);
-	//	ft_strdel(&tmp);
 	}
 	return (s);
 

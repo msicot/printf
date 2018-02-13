@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:09:01 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 15:36:52 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 18:22:11 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*ft_is_octal2(va_list ap, t_arg *l)
 		return (ft_integer_o(((unsigned char)(va_arg(ap, int))), l));
 	if (l->h == 1)
 		return (ft_integer_o(((short unsigned int)(va_arg(ap, int))), l));
-	return (ft_integer_o((va_arg(ap, uintmax_t)), l));
+	return (ft_integer_o((va_arg(ap, unsigned int)), l));
 }
 
 char	*ft_is_octal(va_list ap, t_arg *l)

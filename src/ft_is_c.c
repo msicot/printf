@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 13:57:50 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 10:25:38 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 18:07:44 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ static void	ft_fill(char **s, t_arg *l, int k, char c)
 		while (i < k - 1)
 			(*s)[i++] = (l->zero == 1) ? '0' : ' ';
 		if (i < k)
-		{
-	
 			(*s)[i] = (c == '\0') ? '\0' : c;
-		}
 	}
 	else 
 	{
@@ -54,6 +51,11 @@ char	*ft_char_c(char c, t_arg *l)
 	if (!(s = ft_strnew(k)))
 		return (NULL);
 	ft_fill(&s, l, k, c);
+/*	if (c == '\0')
+	{
+		ft_null_c(s, l);
+		return (NULL);
+	}*/
 	return (s);
 }
 
