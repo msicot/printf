@@ -6,13 +6,13 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:56:36 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 12:00:32 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 12:01:27 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libftprintf.h>
 
-static int	ft_num_len (uintmax_t n, int base)
+static int	ft_num_len (intmax_t n, int base)
 {
 	int i;
 
@@ -24,7 +24,7 @@ static int	ft_num_len (uintmax_t n, int base)
 	}
 	return (i);
 }
-static char	*ft_create_str(int base, int len, uintmax_t n, int sign)
+static char	*ft_create_str(int base, int len, intmax_t n, int sign)
 {
 	char	*str;
 	char	letter;
@@ -46,7 +46,7 @@ static char	*ft_create_str(int base, int len, uintmax_t n, int sign)
 	return (str);
 }
 
-char		*ft_itoa_base(uintmax_t n, int base, int sign)
+char		*ft_itoa_base_u(intmax_t n, int base, int sign)
 {
 	char		*str;
 	int			len;

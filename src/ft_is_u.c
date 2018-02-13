@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 11:34:57 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/01 16:17:31 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 15:48:22 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*ft_is_u2(va_list ap, t_arg *l)
 	if (l->hh == 1)
 		return (ft_integer(((unsigned char)(va_arg(ap, unsigned int))), l));
 	if (l->h == 1)
-		return (ft_integer(((va_arg(ap, unsigned int))), l));
+		return (ft_integer(((short unsigned int)(va_arg(ap, unsigned int))), l));
 	return (ft_integer((va_arg(ap, unsigned int)), l));
 }
 char	*ft_is_u(va_list ap, t_arg *l)

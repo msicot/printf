@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wp.c                                            :+:      :+:    :+:   */
+/*   ft_width.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/18 09:00:28 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/06 15:21:05 by msicot           ###   ########.fr       */
+/*   Created: 2018/02/13 14:17:34 by msicot            #+#    #+#             */
+/*   Updated: 2018/02/13 14:42:37 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ static void	ft_else_width(char **s, char *val, t_arg *l, int k)
 	{
 		if (i == 0 && l->blank == 1)
 			(*s)[i++] = ' ';
-		(*s)[i++] = (l->zero == 1) ? '0' : ' ';
+		else
+			(*s)[i++] = (l->zero == 1) ? '0' : ' ';
 	}
+
+
 	if (l->preci != 0)
 	{
 		while (i < (k - lenf))
@@ -51,9 +54,10 @@ static void ft_minus_d(char **s, char *val, t_arg *l, int k)
 		(*s)[i++] = ' ';
 	else if (l->sign == 1)
 		(*s)[i++] = (l->neg == 1) ? val[j++] : '+';
+//	printf("k=%d i=%d lim=%d\n", k, i, l->preci - lenf + l->sign);
 	if (l->preci != 0)
 	{
-		while (i < (l->preci - (lenf) + l->sign))
+		while (i < (l->preci - (lenf) + l->sign + l->blank))
 			(*s)[i++] = '0';
 	}
 	while (j < lenf + l->neg)

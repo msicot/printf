@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 13:57:50 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/12 11:38:14 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 10:25:38 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_is_c(va_list ap, t_arg *l)
 		return (ft_is_unic(ap, l));
 	c = va_arg(ap, int);
 	s = ft_char_c(c, l);
-	if (c == '\0')//|| c == NULL)
+	if (c == '\0')
 	{
 		ft_null_c(s, l);
 		return (NULL);

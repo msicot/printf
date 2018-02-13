@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 18:14:38 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 09:25:46 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 12:29:24 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,14 @@ static void	ft_preci_s(char **s, t_arg *l)
 			while (i < l->preci)
 			{
 				len = ft_printable(tmp[i]);
-	//			printf("len-->%d<--\n", len);////
 				if (len == 1 && i < l->preci)
 					++i;
-				else if (len > 1 && MB_CUR_MAX == 1)
+				else if ((len > 1 && MB_CUR_MAX == 1) || i + len > l->preci)
 					break ;
 				else if (i + len <= l->preci)
 					i += len;
-				else if (i + len > l->preci)
-					break ;
 			}
-	//		printf("i->%d<-\n", i);//
 			len = (int)ft_strlen(*s);
-	//		printf("len=%d i=%d\n", len, i);/////
 			while (i < len)
 				(*s)[i++] = '\0';
 		}
@@ -94,7 +89,8 @@ static char	*ft_is_unic_s(wchar_t u, t_arg *l)
 	char	*s2;
 
 	s = NULL;
-	s2 = ft_strnew(1);
+	if (!(s2 = ft_strnew(1)))
+		return (NULL);
 	l->sign = 0;
 	l->neg = 0;
 	l->zero = 0;
@@ -103,11 +99,11 @@ static char	*ft_is_unic_s(wchar_t u, t_arg *l)
 	if (u < 128 || (u <= 255 && MB_CUR_MAX == 1))
 	{
 		s2[0] = (char)u;
-//		printf("s2 ->%s<- LEN=%d\n", s2, (int)ft_strlen(s2));///
 		return (s2);
 	}
 	else if (u >= 128)
-		s = ft_unicode2(u, l);
+		if (!(s = ft_unicode2(u, l)))
+			return (NULL);
 	return (s);
 }
 
@@ -122,25 +118,22 @@ char	*ft_is_unis(va_list ap, t_arg *l)
 	l->x = 1;
 	i = 0;
 	tmp = NULL;
-	s = ft_strnew(0);
-	u = va_arg(ap, wchar_t*);
+	if (!(s = ft_strnew(0)))
+		return (NULL);
+	if (!(u = va_arg(ap, wchar_t*)))
+		return (ft_strdup("(null)"));
 	while (u[i])
 	{
 		tmp2 = s;
 		tmp = ft_is_unic_s(u[i++], l);
-		s = ft_strjoin(s, tmp);
+		if (!(s = ft_strjoin(s, tmp)))
+			return (NULL);
 		ft_strdel(&tmp2);
 		ft_strdel(&tmp);
 	}
-//	printf("s__>%s<__\n", s);///
 	ft_preci_s(&s, l);
-	if (s != NULL)
-	{
 	if (!(s = ft_width_s(s, l)))
 		return (NULL);
-	}
-//	ft_putstr("test");///	
 	l->x = 0;
-//	printf("_%s_\n", s);///
 	return (s);
 }

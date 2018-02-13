@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 13:57:59 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/12 17:32:43 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 13:31:58 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	ft_format_delim(const char *f, t_arg *l, va_list ap);
 void	ft_lecture(char *buf, t_arg *l, const char *f, va_list ap);
 void	ft_merge(char *buf, t_arg *l);
 char	*ft_integer(intmax_t val, t_arg *l);
+void	ft_fill_it_d(char **s, char *val, t_arg *l, int k);
 char	*ft_integer_o(uintmax_t val, t_arg *l);
 char	*ft_integer_x(uintmax_t val, t_arg *l);
 void	ft_mna(char *s, t_arg *l);
@@ -89,7 +90,8 @@ char	*ft_string(t_arg *l, va_list ap);
 char	*ft_string_p(char *s, t_arg *l);
 
 char	*ft_pourc(t_arg *l);
-char	*ft_itoa_base(uintmax_t num, int base, int sign);
+char	*ft_itoa_base(uintmax_t n, int base, int sign);
+char	*ft_itoa_base_u(intmax_t num, int base, int sign);
 char	*ft_itoa_unsigned(uintmax_t n);
 void	ft_gnf(t_arg *l, const char *f, va_list ap);
 char	*ft_width_int(char *s, t_arg *l);

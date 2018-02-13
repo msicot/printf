@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 14:25:00 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/02 14:30:39 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/13 15:20:39 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void 		ft_check_0o(char **val, t_arg *l)
 	}
 	else if (ft_strlen((*val)) == 1 && l->point == 1 && l->preci <= 1
 		   	&& (*val)[0] == '0')
+		l->sharp = 0;
+	else if (l->sharp == 1 && (*val)[0] == '0')
 		l->sharp = 0;
 
 }
