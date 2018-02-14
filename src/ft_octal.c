@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:09:01 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 18:22:11 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/14 15:44:11 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 static char	*ft_is_octal2(va_list ap, t_arg *l)
 {
 	if (l->j == 1)
-		return (ft_integer_o(va_arg(ap, uintmax_t ), l));
+		return (ft_integer_o(va_arg(ap, uintmax_t), l));
 	if (l->ll == 1)
 		return (ft_integer_o((va_arg(ap, long long)), l));
 	if (l->l == 1)
-		return (ft_integer_o((va_arg(ap, long  int)), l));
+		return (ft_integer_o((va_arg(ap, long int)), l));
 	if (l->z == 1)
 		return (ft_integer_o((va_arg(ap, size_t)), l));
 	if (l->hh == 1)
@@ -29,9 +29,9 @@ static char	*ft_is_octal2(va_list ap, t_arg *l)
 	return (ft_integer_o((va_arg(ap, unsigned int)), l));
 }
 
-char	*ft_is_octal(va_list ap, t_arg *l)
+char		*ft_is_octal(va_list ap, t_arg *l)
 {
-	char 		*s;
+	char	*s;
 
 	if (l->l == 2)
 	{
@@ -47,5 +47,4 @@ char	*ft_is_octal(va_list ap, t_arg *l)
 	if (!(s = ft_is_octal2(ap, l)))
 		return (NULL);
 	return (s);
-
 }

@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 15:09:05 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/09 15:06:11 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/14 13:41:17 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		ft_flag_reset(t_arg *arg)
 	arg->minus = 0;
 	arg->blank = 0;
 	arg->sharp = 0;
-	arg->preci = 0; // suppr -1
+	arg->preci = 0;
 	arg->wild = 0;
 	arg->width = 0;
 	arg->neg = 0;
@@ -60,7 +60,6 @@ static int	ft_raise_flag(const char *format, t_arg *l)
 	{
 		l->zero = 1;
 		l->bkzero = 1;
-		
 	}
 	else if (format[LEN] == ' ')
 		l->blank = 1;

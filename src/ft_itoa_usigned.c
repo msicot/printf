@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_max.c                                      :+:      :+:    :+:   */
+/*   ft_itoa_usigned.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/15 11:52:39 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/01 14:04:25 by msicot           ###   ########.fr       */
+/*   Created: 2018/02/14 15:52:20 by msicot            #+#    #+#             */
+/*   Updated: 2018/02/14 15:52:47 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int		ft_count(uintmax_t n)
+static int	ft_count(uintmax_t n)
 {
 	int		i;
 
@@ -26,7 +26,8 @@ static int		ft_count(uintmax_t n)
 	}
 	return (i);
 }
-static char		*ft_exception2(uintmax_t n)
+
+static char	*ft_exception2(uintmax_t n)
 {
 	char	*nbr;
 	int		i;
@@ -45,7 +46,7 @@ static char		*ft_exception2(uintmax_t n)
 	return (nbr);
 }
 
-char			*ft_itoa_unsigned(uintmax_t n)
+char		*ft_itoa_unsigned(uintmax_t n)
 {
 	char	*nbr;
 	int		i;

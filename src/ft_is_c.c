@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 13:57:50 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 18:44:19 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/14 15:54:05 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_fill(char **s, t_arg *l, int k, char c)
 		if (i < k)
 			(*s)[i] = (c == '\0') ? '\0' : c;
 	}
-	else 
+	else
 	{
 		if (i < k)
 			(*s)[i++] = (c == '\0') ? '\0' : c;
@@ -40,26 +40,21 @@ static int	ft_champs_c(t_arg *l)
 	len = 1;
 	len = (l->width > len) ? len + (l->width - len) : len;
 	return (len);
-
 }
-char	*ft_char_c(char c, t_arg *l)
+
+char		*ft_char_c(char c, t_arg *l)
 {
 	char	*s;
-	int	k;
+	int		k;
 
 	k = ft_champs_c(l);
 	if (!(s = ft_strnew(k)))
 		return (NULL);
 	ft_fill(&s, l, k, c);
-/*	if (c == '\0')
-	{
-		ft_null_c(s, l);
-		return (NULL);
-	}*/
 	return (s);
 }
 
-char	*ft_is_c(va_list ap, t_arg *l)
+char		*ft_is_c(va_list ap, t_arg *l)
 {
 	char	*s;
 	char	c;

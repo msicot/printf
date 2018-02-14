@@ -6,18 +6,17 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 16:00:28 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 16:58:34 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/14 15:41:56 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void ft_signin(char **s, t_arg *l, int k, int lim)
+void	ft_signin(char **s, t_arg *l, int k, int lim)
 {
 	int i;
 
 	i = 0;
-
 	if (l->sign == 1)
 	{
 		if (l->zero == 1)
@@ -27,7 +26,7 @@ void ft_signin(char **s, t_arg *l, int k, int lim)
 	}
 }
 
-void ft_wp_zero(char **s, char *val, t_arg *l, int k)
+void	ft_wp_zero(char **s, char *val, t_arg *l, int k)
 {
 	int i;
 	int j;
@@ -44,11 +43,12 @@ void ft_wp_zero(char **s, char *val, t_arg *l, int k)
 		(*s)[i++] = val[j++];
 }
 
-void ft_wp_zero_o(char **s, char *val, t_arg *l, int k)
+void	ft_wp_zero_o(char **s, char *val, t_arg *l, int k)
 {
 	int i;
 	int j;
 	int	len;
+
 	len = ft_strlen(val);
 	j = 0;
 	i = 0;

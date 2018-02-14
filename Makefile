@@ -6,7 +6,7 @@
 #    By: msicot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/21 18:38:05 by msicot            #+#    #+#              #
-#    Updated: 2018/02/13 13:34:03 by msicot           ###   ########.fr        #
+#    Updated: 2018/02/14 17:33:02 by msicot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CFLAGS = -Wextra -Werror -Wall
 
 SRC_NAME = ft_printf.c ft_error.c ft_flags.c	ft_format.c	ft_integer.c	ft_is_type.c	ft_itoa_max.c	ft_options.c	ft_printf.c	ft_read.c\
 	   	   ft_is_num.c ft_is_c.c ft_is_p.c	ft_is_unic.c ft_is_unis.c ft_string.c ft_octal.c ft_octal2.c	ft_itoa_base.c	ft_itoa_base_u.c	ft_width.c ft_sign.c \
-		   ft_precision.c ft_is_u.c ft_itoa_usigned.c ft_width_o.c ft_width_x.c ft_hexa.c ft_hexa2.c ft_null.c ft_pourc.c
+		   ft_precision.c ft_is_u.c ft_itoa_usigned.c ft_width_o.c ft_width_x.c ft_hexa.c ft_hexa2.c ft_null.c ft_pourc.c ft_width_p.c ft_wipre_unis.c 
 		
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -70,3 +70,4 @@ re : fclean all
 m : all
 	@clear
 	@gcc main.c -L. -lftprintf
+	@./a.out

@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 14:33:09 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 16:53:32 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/14 17:42:54 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static char	*ft_is_hexa2(va_list ap, t_arg *l)
 {
 	if (l->j == 1)
-		return (ft_integer_x(va_arg(ap, uintmax_t ), l));
+		return (ft_integer_x(va_arg(ap, uintmax_t), l));
 	if (l->ll == 1)
 		return (ft_integer_x((va_arg(ap, unsigned long long)), l));
 	if (l->l == 1)
@@ -25,13 +25,16 @@ static char	*ft_is_hexa2(va_list ap, t_arg *l)
 	if (l->hh == 1)
 		return (ft_integer_x(((unsigned char)(va_arg(ap, unsigned int))), l));
 	if (l->h == 1)
-		return (ft_integer_x(((short unsigned int)(va_arg(ap, unsigned int))), l));
-	return (ft_integer_x((va_arg(ap, unsigned int)), l));
+	{
+		return (ft_integer_x(((short unsigned int)
+						(va_arg(ap, unsigned int))), l));
+	}
+	return (ft_integer_x(va_arg(ap, unsigned int), l));
 }
 
-char	*ft_is_x(va_list ap, t_arg *l)
+char		*ft_is_x(va_list ap, t_arg *l)
 {
-	char 		*s;
+	char	*s;
 
 	l->sign = 0;
 	l->plus = 0;
@@ -47,5 +50,4 @@ char	*ft_is_x(va_list ap, t_arg *l)
 			return (NULL);
 	}
 	return (s);
-
 }

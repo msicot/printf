@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 09:33:02 by msicot            #+#    #+#             */
-/*   Updated: 2018/01/29 10:34:40 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/14 12:04:12 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	ft_wildcard(t_arg *l, va_list ap, int p)
 	{
 		l->minus = 1;
 		ft_flag_override(l);
-		val *= -1;
+		val *= 0;
 	}
 	if (p == 0)
 		l->width = val;

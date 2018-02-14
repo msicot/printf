@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 16:24:23 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 14:07:43 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/14 15:54:58 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,15 @@ static char	*ft_isnum2(va_list ap, t_arg *l)
 		return (ft_integer((intmax_t)(va_arg(ap, size_t)), l));
 	if (l->hh == 1)
 		return (ft_integer((intmax_t)((char)(va_arg(ap, int))), l));
-	if (l->h == 1)	
+	if (l->h == 1)
 		return (ft_integer((intmax_t)((short int)(va_arg(ap, int))), l));
 	return (ft_integer((intmax_t)(va_arg(ap, int)), l));
 }
 
-char	*ft_is_d(va_list ap, t_arg *l)
+char		*ft_is_d(va_list ap, t_arg *l)
 {
 	char	*s;
 
 	s = ft_isnum2(ap, l);
 	return (s);
 }
-

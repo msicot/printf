@@ -6,7 +6,7 @@
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 18:27:50 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/02 16:19:17 by msicot           ###   ########.fr       */
+/*   Updated: 2018/02/14 15:31:16 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_else_width(char **s, char *val, t_arg *l, int k)
 		(*s)[i++] = val[j++];
 }
 
-static void ft_minus_d(char **s, char *val, t_arg *l, int k)
+static void	ft_minus_d(char **s, char *val, t_arg *l, int k)
 {
 	int	lenf;
 	int	i;

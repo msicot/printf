@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base (1).c                                 :+:      :+:    :+:   */
+/*   ft_itoa_base_u.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msicot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/02 09:56:36 by msicot            #+#    #+#             */
-/*   Updated: 2018/02/13 12:01:27 by msicot           ###   ########.fr       */
+/*   Created: 2018/02/14 15:51:45 by msicot            #+#    #+#             */
+/*   Updated: 2018/02/14 15:51:51 by msicot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libftprintf.h>
 
-static int	ft_num_len (intmax_t n, int base)
+static int	ft_num_len(intmax_t n, int base)
 {
 	int i;
 
@@ -24,6 +24,7 @@ static int	ft_num_len (intmax_t n, int base)
 	}
 	return (i);
 }
+
 static char	*ft_create_str(int base, int len, intmax_t n, int sign)
 {
 	char	*str;
